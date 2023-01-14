@@ -1,9 +1,13 @@
-var express = require("express");
-var app = express();
+const Joi = require("joi");
+const home = require("./routes/home");
+const genres = require("./routes/genres");
+const express = require("express");
+const app = express();
 
-app.get("/", function (req, res) {
-  res.send("hello world");
-});
+app.use(express.json());
+
+app.use("/", home);
+app.use("/api/genres", genres);
 
 // PORT
 const port = process.env.PORT || 3000;
