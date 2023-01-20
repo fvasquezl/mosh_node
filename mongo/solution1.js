@@ -1,7 +1,7 @@
 const { default: mongoose } = require("mongoose");
 mongoose.set("strictQuery", false);
 mongoose
-  .connect("mongodb://127.0.0.1:27017/mongo-excersices")
+  .connect("mongodb://127.0.0.1:27017/mongo-exercises")
   .then(() => console.log("Connected to Mongodb"))
   .catch((err) => console.error("Error connection", err));
 

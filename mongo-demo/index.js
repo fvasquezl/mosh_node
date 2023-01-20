@@ -6,6 +6,7 @@ mongoose
   .then(() => console.log("Connected to Mongodb"))
   .catch((err) => console.error("Error connection", err));
 
+//Schema
 const courseSchema = new mongoose.Schema({
   name: String,
   author: String,
@@ -14,6 +15,8 @@ const courseSchema = new mongoose.Schema({
   isPublished: Boolean,
 });
 
+//
+//Model
 const Course = mongoose.model("Course", courseSchema);
 
 async function createCourse() {
