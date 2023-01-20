@@ -103,42 +103,5 @@ async function getCoursesPagination() {
     .select({ name: 1, tags: 1 });
   console.log(courses);
 }
-// Update getting object
-async function updateCourse(id) {
-  const course = await Course.findById(id);
-  if (!course) return;
-  course.isPublished = true;
-  course.author = "Another author";
-  const result = await course.save();
-  console.log(result);
-}
-//update directly in database
-async function updateCourseDatabase(id) {
-  const result = await Course.updateOne(
-    { _id: id },
-    {
-      $set: { author: "Fvasquez", isPublished: false },
-    }
-  );
-  console.log(result);
-}
 
-//update directly in database
-async function updateCourseDatabaseFindingId(id) {
-  const result = await Course.findByIdAndUpdate(
-    id,
-    {
-      $set: { author: "fvasquezl", isPublished: false },
-    },
-    { new: true }
-  );
-  console.log(result);
-}
-
-//remove document from database
-async function removeCourse(id) {
-  const result = await Course.findByIdAndRemove(id);
-  console.log(result);
-}
-
-removeCourse("63c76fc1451dfcaaefedb03f");
+getCoursesPagination();
